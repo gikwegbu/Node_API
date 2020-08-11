@@ -17,12 +17,7 @@ mongoose.connect(`mongodb+srv://${process.env.MongoDb_Username}:${process.env.Mo
         useNewUrlParser: true, 
         useUnifiedTopology: true 
     })
-
-// mongoose.connect(`
-//     mongodb+srv://${process.env.MongoDb_Username}:${process.env.MongoDb_Password}@node-rest-api-f7u4e.mongodb.net/${process.env.MongoDb_Name}?retryWrites=true&w=majority`,
-//     { useNewUrlParser: true }
-//     )
-
+ 
 app.use(morgan('dev'))
 // Making the Uploads folder publicly availble to every route
 // app.use(express.static('uploads')); /* Then to access the image on the browser, use the localhost:PORT/<just the image name, remove the uploads folder> */
