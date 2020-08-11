@@ -17,7 +17,24 @@
 
 3. An upload folder will be automatically created as a result of the configuration passed to the multer when it's being initialised.
 
+4. To use clone, download or fork this repo, do well to add '.env' file which would contain the following 
+    1. MongoDb_Username 
+    2. MongoDb_Password 
+    3. MongoDb_Name 
+    4. JWT_SECRET_KEY (This could be any word you wish to use to encrypt your JWT)
+
+    NB: Get you mongoDb settings from the official site, when you register
+
 ## MVC Model
     This RESTful API, completes the models, and controllers, but the view is absent as it's just a public api.
 
-#Built with 💖💖 By [George Ikwegbu](http://my-portfolio-29d3f.web.app/)
+## Documentation
+    This API is divided into three(3) major Routes
+    1. The Users 
+    2. The Products
+    3. The Orders 
+
+
+
+
+##### Built with 💖💖 By [George Ikwegbu](http://my-portfolio-29d3f.web.app/)
