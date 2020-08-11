@@ -10,8 +10,9 @@ const morgan = require('morgan')
 
 const productRoutes = require('./api/routes/products')
 const orderRoutes = require('./api/routes/order')
+const userRoutes = require('./api/routes/user')
 
-mongoose.connect('mongodb+srv://mr-browny:yHtohdj1dOB2mm37@node-rest-api-f7u4e.mongodb.net/noderestapi?retryWrites=true&w=majority', 
+mongoose.connect(`mongodb+srv://${process.env.MongoDb_Username}:${process.env.MongoDb_Password}@node-rest-api-f7u4e.mongodb.net/${process.env.MongoDb_Name}?retryWrites=true&w=majority`, 
     { 
         useNewUrlParser: true, 
         useUnifiedTopology: true 
@@ -23,11 +24,15 @@ mongoose.connect('mongodb+srv://mr-browny:yHtohdj1dOB2mm37@node-rest-api-f7u4e.m
 //     )
 
 app.use(morgan('dev'))
+// Making the Uploads folder publicly availble to every route
+// app.use(express.static('uploads')); /* Then to access the image on the browser, use the localhost:PORT/<just the image name, remove the uploads folder> */
+app.use('/uploads',express.static('uploads')); /* This would allow you access the image from the localhost even with the uploads directory, as it'll be ignored with the beside code while parsing it */
  app.use(bodyParser.urlencoded({extended: false}));
  app.use(bodyParser.json());
 // Routes which should handle request set up in the middleware
 app.use('/products', productRoutes)
 app.use('/orders', orderRoutes);
+app.use('/users', userRoutes)
 
 
 // This is for the cors
