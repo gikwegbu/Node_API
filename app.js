@@ -24,9 +24,8 @@ app.use(morgan('dev'))
 app.use('/uploads',express.static('uploads')); /* This would allow you access the image from the localhost even with the uploads directory, as it'll be ignored with the beside code while parsing it */
  app.use(bodyParser.urlencoded({extended: false}));
  app.use(bodyParser.json());
-
+ 
 // Routes which should handle request set up in the middleware
-app.use('/', productRoutes)
 app.use('/products', productRoutes)
 app.use('/orders', orderRoutes);
 app.use('/users', userRoutes)
